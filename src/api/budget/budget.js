@@ -10,7 +10,7 @@ const budgetModel = {
   getALLDeptInfo (param) {
     // 后端使用@RequestBody，前端请求头必须为json，并且请求参数要转换为json字符串
     var b = {imCustNo: param}
-    return http.post(`${base.common}/api/getCorpByImCustNo`, b,
+    return http.post(`${base.common}/api/getBudgetCorpTree`, b,
       {
         headers: {
           'Content-Type': 'application/json;charset=UTF-8'
@@ -18,7 +18,15 @@ const budgetModel = {
       })
   },
   saveBudgetDeptInfo (param) {
-    return http.post(`${base.common}/api/saveBudgetDeptInfo`, JSON.stringify(param),
+    return http.post(`${base.common}/api/saveBudgetCorpInfo`, JSON.stringify(param),
+      {
+        headers: {
+          'Content-Type': 'application/json;charset=UTF-8'
+        }
+      })
+  },
+  saveBudgetControlParam (param) {
+    return http.post(`${base.common}/api/saveBudgetControlParam`, JSON.stringify(param),
       {
         headers: {
           'Content-Type': 'application/json;charset=UTF-8'
